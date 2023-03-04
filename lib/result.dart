@@ -7,10 +7,12 @@ class Result extends StatelessWidget {
   // const Result({super.key});
 
   final int resultScore;
+  final VoidCallback resetHandler;
 
-  Result(this.resultScore);
+  Result(this.resultScore, this.resetHandler);
 
   String get resultPhrase {
+    
     String resultText;
 
     if (resultScore <= 8) {
@@ -18,7 +20,7 @@ class Result extends StatelessWidget {
     } else if (resultScore <= 12) {
       resultText = 'Pretty likable';
     } else if (resultScore <= 16) {
-      resultText = 'You are ... Strange?!';
+      resultText = 'You are ...Strange?!';
     } else {
       resultText = 'You are soo bad!';
     }
@@ -29,13 +31,22 @@ class Result extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text(
-        resultPhrase,
-        // ignore: prefer_const_constructors
-        style: TextStyle(
-          fontSize: 36,
-          fontWeight: FontWeight.bold,
-        ),
+      child: Column(
+        children: [
+          Text(
+            resultPhrase,
+            // ignore: prefer_const_constructors
+            style: TextStyle(
+              fontSize: 36,
+              fontWeight: FontWeight.bold,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          TextButton(
+            onPressed: resetHandler, 
+            child: Text('Restart Quiz!'),
+          ),
+        ],
       ),
     );
   }
