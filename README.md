@@ -1,6 +1,7 @@
-# first_app
+# first_app / Quiz App
 
-A new Flutter project.
+This is a personlaity test app.
+final app link [here]("\build\app\outputs\apk\release\app-arm64-v8a-release.apk")
 
 ## Getting Started
 
